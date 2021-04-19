@@ -1,19 +1,18 @@
-import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
-// import { HttpContext } from '@adonisjs/core/build/standalone';
+
 import User from '../../Models/User';
 
 export default class UsersController {
 
-    async index({view}: HttpContextContract){
-        let posts= await User.all()
-        // console.log(posts.rows)
-        return view.render('posts/index',{
-            post:posts
-        })
+    async index({view}){
+        const posts= await User.all()
+        
+        return view.render('post.index',{
+            post:posts}
+        )
     }
     
     create({ view }) {
-        return view.render('posts/create')
+        return view.render('post/create')
       }
 
     
@@ -34,7 +33,7 @@ export default class UsersController {
         const id    = params.id
         const post  = await User.find(id)
       
-        return view.render('posts/edit', { post: post })
+        return view.render('post/edit', { post: post })
     }
       
     async update({ request, response, params, session }) {

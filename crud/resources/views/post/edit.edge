@@ -17,15 +17,15 @@
           EDIT POSTS
         </div>
         <div class="card-body">
-          <form action="{{ route('posts.update', { id: post.id }) }}" method="POST">
+          <form action="{{ route('posts.edit', { id: post.id }) }}" method="POST">
             {{ csrfField() }}
             <div class="form-group">
               <label>TITLE</label>
-              <input class="form-control" type="text" name="title" value="{{ post.title }}" placeholder="Masukkan Judul Post">
+              <input class="form-control" type="text" name="title" value="{{ post.nama }}" placeholder="Masukkan Judul Post">
             </div>
             <div class="form-group">
               <label>CONTENT</label>
-              <textarea class="form-control" name="content" rows="5" placeholder="Masukkan Content Post">{{ post.content }}</textarea>
+              <textarea class="form-control" name="content" rows="5" placeholder="Masukkan Content Post">{{ post.konten }}</textarea>
             </div>
             <div class="form-group">
               <button type="submit" class="btn btn-md btn-success">UPDATE</button>

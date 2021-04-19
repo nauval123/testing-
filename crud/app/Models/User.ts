@@ -3,13 +3,14 @@ import { BaseModel, column } from '@ioc:Adonis/Lucid/Orm'
 
 export default class User extends BaseModel {
   public static table = 'users'
+  
   @column({ isPrimary: true })
   public id: number
 
-  @column()
+  @column({})
   public nama: string
 
-  @column()
+  @column({})
   public konten:string
 
   @column.dateTime({ autoCreate: true })

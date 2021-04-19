@@ -12,7 +12,7 @@
 <div class="container" style="margin-top: 80px">
   <div class="row">
     <div class="col-md-12">
-      @if(flashMessage('notification'))
+      @if({{flashMessage.has('notification')}})
       <div class="alert alert-success">{{ flashMessage('notification') }}</div>
       @endif
       <div class="card">
@@ -30,13 +30,13 @@
             </tr>
             </thead>
             <tbody>
-            @each(posts in post)
+            @each(posts in posts)
             <tr>
-              <td> {{ posts.title }} </td>
-              <td> {{ posts.content }} </td>
+              <td> {{ posts.nama }} </td>
+              <td> {{ posts.konten }} </td>
               <td class="text-center">
                 <a href="{{ route('posts.edit', { id : posts.id }) }}" class="btn btn-sm btn-primary">EDIT</a>
-                <a href="{{ route('posts.delete', { id : posts.id }) }}" class="btn btn-sm btn-danger">HAPUS</a>
+                {{--  <a href="{{ route('posts.delete', { id : posts.id }) }}" class="btn btn-sm btn-danger">HAPUS</a>  --}}
               </td>
             </tr>
             @endeach

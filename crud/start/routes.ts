@@ -22,6 +22,12 @@
 import Route from '@ioc:Adonis/Core/Route'
 import HealthCheck from '@ioc:Adonis/Core/HealthCheck'
 
+Route.on('/').render('welcome')
+Route.get('/posts', 'UsersController.index').as('posts.index')
+Route.get('/posts/create', 'UsersController.create').as('posts.create')
+Route.post('/posts/store', 'UsersController.store').as('posts.store')
+Route.get('/posts/edit/:id', 'UsersController.edit').as('posts.edit')
+
 Route.get('health', async ({ response }) => {
   const report = await HealthCheck.getReport()
   
@@ -29,4 +35,4 @@ Route.get('health', async ({ response }) => {
     ? response.ok(report)
     : response.badRequest(report)
 })
-Route.get('/posts', 'post/home').as('homepage')
+// Route.get('/posts', 'post/home').as('homepage')

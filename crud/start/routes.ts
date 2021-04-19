@@ -21,4 +21,4 @@
 import Route from '@ioc:Adonis/Core/Route'
 
 Route.on('/').render('welcome')
-Route.get('/posts','post/home')as('homePage')
+Route.get('/posts', 'post/home').as('homepage')
